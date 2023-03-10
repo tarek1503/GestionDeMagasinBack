@@ -1,10 +1,10 @@
-package com.example.Products.ServiceImp;
+package com.example.products.ServiceImp;
 
-import com.example.Products.entity.Product;
+import com.example.products.entity.Product;
 
 import java.util.List;
 
-public interface ProductServiceImp {
+public interface IProductService {
     Product saveProduct(Product product);
     List<Product> saveProducts(List<Product> products);
     List<Product> getProducts();
@@ -13,4 +13,8 @@ public interface ProductServiceImp {
     Product getProductByName(String nom);
     String deleteProduct(long id);
     Product updateProduct(Product product);
+    List<Product> getProductsByCategory(Long id);
+/*
+    String addProductToCategory(Long idCategory,Long idProduct);
+*/
 }

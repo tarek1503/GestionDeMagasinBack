@@ -1,17 +1,20 @@
-package com.example.Products.controllers;
+package com.example.products.controllers;
 
-import com.example.Products.entity.Product;
-import com.example.Products.service.ProductService;
+import com.example.products.entity.Product;
+import com.example.products.repository.ProductRepository;
+import com.example.products.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
 @RequestMapping("/GestionProd")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class ProductController {
     @Autowired
     private ProductService productService;
+    @Autowired
+    private ProductRepository productRepository;
 
     @PostMapping("/addProduct")
     public Product addProduct(@RequestBody Product product){
@@ -36,6 +39,11 @@ public class ProductController {
     public Product findProductByName(@PathVariable String name){
         return productService.getProductByName(name);
     }
+    @GetMapping("/categorypro/{category}")
+
+    public List<Product> findProductsByCategory(@PathVariable("category") Long id){
+        return productService.getProductsByCategory(id);
+    }
     @PutMapping("/update")
     public Product updateProduct(@RequestBody Product product){
 
@@ -46,4 +54,10 @@ public class ProductController {
 
         return productService.deleteProduct(id);
     }
+
+    @GetMapping("/productsByCategory/{id}")
+    public List<Product> getProductsByCategory(@PathVariable long id) {
+        return productRepository.findProductsByCategory_Id(id);
+    }
+
 }

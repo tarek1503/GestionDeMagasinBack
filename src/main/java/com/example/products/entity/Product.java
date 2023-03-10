@@ -1,4 +1,4 @@
-package com.example.Products.entity;
+package com.example.products.entity;
 
 
 import lombok.AllArgsConstructor;
@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -26,9 +25,7 @@ public class Product implements Serializable {
     private Integer quantiteStock;
 
     @ManyToOne
+    @JoinColumn(name="category_id")
     private Category category;
-    /*
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="product")
-     private List<LigneCommande> ligneCommandes;
-*/
+
 }

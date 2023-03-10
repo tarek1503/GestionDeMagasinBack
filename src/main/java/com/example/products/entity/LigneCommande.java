@@ -1,6 +1,5 @@
-package com.example.Products.entity;
+package com.example.products.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

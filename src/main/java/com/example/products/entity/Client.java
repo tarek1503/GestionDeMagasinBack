@@ -1,4 +1,4 @@
-package com.example.Products.entity;
+package com.example.products.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -19,8 +18,14 @@ public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nom;
-    private String prenom;
+    @Column(name ="FIRST_NAME")
+
+    private String firstName;
+    @Column(name ="LAST_NAME")
+
+    private String lastName;
+    @Column(name = "CONTACT")
+
     private String mobile;
    /* @OneToMany(cascade = CascadeType.ALL, mappedBy="client")
     private List<Commande> commandes;
